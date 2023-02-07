@@ -8,6 +8,18 @@ The designs were created to the following widths:
 - Desktop: 1440px
 
 ## Colors
+:root{
+    --color-cyan: hsl(180, 66%, 49%);
+    --color-dark-violet: hsl(257, 27%, 26%);
+    --color-red: hsl(0, 87%, 67%);
+    --color-gray: hsl(0, 0%, 75%);
+    --color-grayish-violet: hsl(257, 7%, 63%);
+    --color-very-dark-blue: hsl(255, 11%, 22%);
+    --color-very-dark-violet: hsl(260, 8%, 14%);
+    -font-weight-five: 500;
+    --font-weight-seven: 700;
+}
+
 
 ### Primary
 
