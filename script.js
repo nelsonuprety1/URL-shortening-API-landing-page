@@ -1,6 +1,6 @@
 // const shortUrl = document.querySelector('input');
 // const submitButton = document.querySelector('.btn-submit');
-const firstSectionContent = document.querySelector('.first-section-content');
+// const firstSectionContent = document.querySelector('.first-section-content');
 {
   /* <i class="fa fa-bars" onclick="showHideMenu()"></i>; */
 }
@@ -26,13 +26,31 @@ const firstSectionContent = document.querySelector('.first-section-content');
 // }
 
 // Nav menu open and close
-function showHideMenu() {
-  let navLinks = document.getElementById('navLinks');
-  if (navLinks.style.visibility === 'visible') {
-    navLinks.style.visibility = 'hidden';
-    firstSectionContent.classList.remove('menu-open');
-  } else {
-    navLinks.style.visibility = 'visible';
-    firstSectionContent.classList.add('menu-open');
-  }
-}
+// function showHideMenu() {
+//   let navLinks = document.getElementsByClassName('nav-links ul');
+//   if (navLinks.style.visibility === 'visible') {
+//     navLinks.style.visibility = 'hidden';
+//     // firstSectionContent.classList.remove('menu-open');
+//   } else {
+//     navLinks.style.visibility = 'visible';
+//     // firstSectionContent.classList.add('menu-open');
+//   }
+// }
+
+// const bars = document.getElementsByClassName('fa-bars');
+// const navbarLinks = document.getElementsByClassName('nav-links');
+
+// bars.addEventListener('click', () => {
+//   navbarLinks.classList.toggle('active');
+// });
+
+// Get the hamburger icon
+const hamburger = document.querySelector('.fa-bars');
+
+// Get the navigation links
+const navLinks = document.querySelector('.nav-links');
+
+// Add an event listener to the hamburger icon
+hamburger.addEventListener('click', function () {
+  navLinks.classList.toggle('open');
+});
