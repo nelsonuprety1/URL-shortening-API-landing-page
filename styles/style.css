@@ -29,12 +29,32 @@
       margin: 0 auto;
   }
 
+
+  @media (min-width:768px) {
+
+
+      main {
+          max-width: 1440px;
+      }
+  }
+
+  @media (min-width:768px) {
+      .header {
+          display: flex;
+          max-width: 1440px;
+          padding-left: 5rem;
+      }
+  }
+
+
+  @media (min-width:768px) {}
+
+
   /* -------Header Section--------- */
 
   .header {
       display: flex;
       flex-direction: column;
-      padding: 30px;
       max-width: 350px;
   }
 
@@ -43,7 +63,7 @@
       position: relative;
   }
 
-  .nav-links {
+  .nav-active {
       background-color: var(--color-dark-violet);
       width: 330px;
       height: 370px;
@@ -66,14 +86,14 @@
       position: absolute;
   }
 
-  .nav-links ul li {
+  .nav-active ul li {
       list-style: none;
       padding: 14px;
       text-align: center;
       display: block;
   }
 
-  .nav-links ul li a {
+  .nav-active ul li a {
       text-decoration: none;
       color: var(--color-white);
       font-weight: var(--font-weight-seven);
@@ -82,12 +102,12 @@
       border-radius: 25px;
   }
 
-  .nav-links ul li a:hover {
+  .nav-active ul li a:hover {
       background-color: var(--color-cyan);
       color: var(--color-white);
   }
 
-  .nav-links ul li:nth-child(3) {
+  .nav-active ul li:nth-child(3) {
       border-bottom: 1px solid var(--color-grayish-violet-op);
       padding-bottom: 10px;
       margin-right: 20px;
@@ -96,7 +116,78 @@
       margin-bottom: 15px;
   }
 
-  .illustration {
+  @media (min-width:768px) {
+      nav {
+          display: flex;
+      }
+
+      .nav-active {
+          background-color: transparent;
+          display: inline;
+          width: 500px;
+          transition: 0.3s;
+          visibility: visible;
+          border: 1px solid red;
+      }
+
+      nav .fa {
+          display: none;
+      }
+
+      .nav-active ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+      }
+
+      .nav-active ul li {
+          position: relative;
+          bottom: 5.3rem;
+          right: 40rem;
+      }
+
+      .nav-active ul li a {
+          color: var(--color-gray);
+          font-size: 0.85rem;
+          padding: 0px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+      }
+
+      .nav-active ul li a:hover {
+          background-color: transparent;
+          color: var(--color-gray);
+
+      }
+
+      .nav-active ul li:nth-child(3) {
+          border-bottom: none;
+          margin: 0;
+          padding-bottom: 0
+      }
+
+      .nav-active ul li:nth-child(5) {
+          background-color: var(--color-cyan);
+          color: var(--color-white);
+          border-radius: 30px;
+          padding: 14px;
+          width: 100px;
+      }
+
+
+      nav img {
+          position: relative;
+          /* bottom: rem; */
+          top: 2rem;
+      }
+
+
+
+
+  }
+
+  .nav-active .illustration {
       position: relative;
       right: -50px;
       transform: scale(1.6);
@@ -155,6 +246,7 @@
       cursor: pointer;
       margin-left: 70px;
   }
+
 
 
   /* ---------Link Shorten Section----- */
