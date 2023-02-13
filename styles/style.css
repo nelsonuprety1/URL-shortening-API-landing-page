@@ -37,6 +37,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 30px 0;
+      transition: 0.3s;
   }
 
   .logo {
@@ -49,11 +50,12 @@
       padding: 0;
       display: flex;
       justify-content: flex-start;
-      transition: 0.3s;
+      transition: all 0.3s ease-out;
   }
 
   .nav-links ul li {
       list-style: none;
+      transition: 0.3s;
   }
 
   .nav-links ul li a {
@@ -98,7 +100,6 @@
   /* Navbar Media queries for mobile design */
 
   @media (max-width: 600px) {
-
       .logo {
           position: absolute;
           top: 2.2rem;
@@ -106,10 +107,11 @@
 
       .fa-bars {
           display: block;
+          transition: 0.3s;
       }
 
       .nav-links ul {
-          /* display: none; */
+          display: none;
           flex-direction: column;
           background-color: var(--color-dark-violet);
           width: 330px;
@@ -117,12 +119,15 @@
           border-radius: 10px;
           position: absolute;
           z-index: 2;
-          transition: 0.3s;
           top: 6.25rem;
           right: 3.9rem;
-          /* display: block; */
           text-align: center;
           padding: 0.875rem;
+      }
+
+      /* To open the hamburger menu */
+      .nav-links.open ul {
+          display: block;
       }
 
       .nav-links ul li a {
@@ -139,10 +144,8 @@
       .nav-links li:nth-child(3) a {
           border-bottom: 1px solid var(--color-grayish-violet-op);
           padding-bottom: 10px;
-          /* margin-right: 20px; */
           margin-left: 20px;
           width: 290px;
-          /* margin-top: 15px; */
           margin-bottom: 15px;
       }
 
@@ -175,6 +178,7 @@
       font-size: 4rem;
       color: var(--color-dark-violet);
       line-height: 1.1;
+      transition: all 0.3s ease-in-out;
   }
 
   .hero-section-content p {
@@ -183,6 +187,7 @@
       line-height: 1.5;
       max-width: 25rem;
       padding-bottom: 2rem;
+      transition: all 0.3s ease-in-out;
   }
 
   .get-started {
@@ -196,4 +201,80 @@
       line-height: 0.7;
       border-radius: 30px;
       cursor: pointer;
+  }
+
+  /* /* Main Media queries for mobile design */
+
+  @media (max-width:600px) {
+      main {
+          overflow: hidden;
+          border: 1px solid green;
+          max-width: 390px;
+          height: auto;
+          margin: 0 auto;
+      }
+  }
+
+
+  /* ----Hero section media queries---- */
+  @media (max-width:600px) {
+      .hero-section {
+          display: flex;
+          flex-direction: column;
+          padding-bottom: 7rem;
+      }
+
+      .hero-section-content {
+          padding: 0;
+      }
+
+      .hero-section .hero-img {
+          position: relative;
+          transform: scale(1.3);
+          margin-top: 60px;
+          left: 100px;
+          z-index: 1;
+          display: block;
+          padding-bottom: 5rem;
+      }
+
+      .hero-section-content h1 {
+          font-size: 2.67rem;
+          font-weight: var(--font-weight-seven);
+          color: var(--color-very-dark-blue);
+          margin-bottom: 20px;
+          text-align: center;
+          width: 22rem;
+          margin-left: 1rem;
+          line-height: 1.2;
+      }
+
+      .hero-section-content p {
+          font-size: 1rem;
+          color: var(--color-grayish-violet);
+          font-weight: var(--font-weight-five);
+          margin-bottom: 0.2rem;
+          margin-left: 2rem;
+          width: 20.625rem;
+          line-height: 2;
+          letter-spacing: 0.7px;
+          text-align: center;
+      }
+
+
+      .get-started {
+          font-weight: var(--font-weight-seven);
+          cursor: pointer;
+          margin-left: 6.5rem;
+      }
+
+      .hero-section-content {
+          margin-top: 20px;
+          transition: 0.3s;
+      }
+
+      .hero-section-content.menu-open {
+          margin-top: 130px;
+          transition: 0.3s;
+      }
   }
