@@ -1,7 +1,9 @@
 // const shortUrl = document.querySelector('input');
 // const submitButton = document.querySelector('.btn-submit');
 const firstSectionContent = document.querySelector('.first-section-content');
-
+{
+  /* <i class="fa fa-bars" onclick="showHideMenu()"></i>; */
+}
 // submitButton.addEventListener('click', getValue);
 
 // function getValue() {
