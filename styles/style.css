@@ -30,7 +30,7 @@
   }
 
 
-  @media (min-width:768px) {
+/*   @media (min-width:768px) {
 
 
       main {
@@ -47,7 +47,7 @@
   }
 
 
-  @media (min-width:768px) {}
+  @media (min-width:768px) {} */
 
 
   /* -------Header Section--------- */
@@ -116,7 +116,7 @@
       margin-bottom: 15px;
   }
 
-  @media (min-width:768px) {
+/*   @media (min-width:768px) {
       nav {
           display: flex;
       }
@@ -185,7 +185,7 @@
 
 
 
-  }
+  } */
 
   .nav-active .illustration {
       position: relative;
