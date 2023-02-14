@@ -1,6 +1,6 @@
 // const shortUrl = document.querySelector('input');
 // const submitButton = document.querySelector('.btn-submit');
-// const firstSectionContent = document.querySelector('.first-section-content');
+const heroSectionContent = document.querySelector('.hero-section-content');
 {
   /* <i class="fa fa-bars" onclick="showHideMenu()"></i>; */
 }
@@ -53,4 +53,5 @@ const navLinks = document.querySelector('.nav-links');
 // Add an event listener to the hamburger icon
 hamburger.addEventListener('click', function () {
   navLinks.classList.toggle('open');
+  heroSectionContent.classList.toggle('menu-open');
 });
