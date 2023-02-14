@@ -755,5 +755,67 @@
           top: 126.1rem;
           transform: rotate(180deg);
       }
+  }
+
+  /* --------_Boost Links--------- */
+  .boost-links {
+      height: 220px;
+      background: url('../images/bg-boost-desktop.svg') no-repeat;
+      background-color: var(--color-dark-violet);
+      transition: 0.3s ease-in;
+  }
+
+  .boost-links h2 {
+      color: var(--color-white);
+      font-weight: var(--font-weight-seven);
+      font-size: 2rem;
+      text-align: center;
+      padding-top: 3rem;
+  }
+
+  .get-started-2 {
+      background-color: var(--color-cyan);
+      color: var(--color-white);
+      border: none;
+      padding: 14px;
+      font-weight: var(--font-weight-seven);
+      width: 190px;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-left: 40rem;
+      margin-top: 1.7rem;
+  }
+
+  /* ---------Media Queries for Boost links--------------- */
+
+  @media (max-width:600px) {
+      .boost-links {
+          height: 300px;
+          background: url(../images/bg-boost-mobile.svg) right top no-repeat;
+          background-color: var(--color-dark-violet);
+      }
+
+      .boost-links h2 {
+          color: var(--color-white);
+          font-weight: var(--font-weight-seven);
+          font-size: 1.6rem;
+          text-align: center;
+          display: inline-block;
+          margin-top: 50px;
+          margin-left: 90px;
+          /* margin-bottom: 1rem; */
+      }
+
+      .get-started-2 {
+          background-color: var(--color-cyan);
+          color: var(--color-white);
+          border: none;
+          padding: 14px;
+          font-weight: var(--font-weight-seven);
+          width: 190px;
+          border-radius: 30px;
+          cursor: pointer;
+          margin-left: 8rem;
+      }
 
   }
