@@ -1,10 +1,16 @@
-// const shortUrl = document.querySelector('input');
-// const submitButton = document.querySelector('.btn-submit');
+'use strict';
+// for hero section margin
 const heroSectionContent = document.querySelector('.hero-section-content');
-{
-  /* <i class="fa fa-bars" onclick="showHideMenu()"></i>; */
-}
-// submitButton.addEventListener('click', getValue);
+// Get the hamburger icon
+const hamburger = document.querySelector('.fa-bars');
+// Get the navigation links
+const navLinks = document.querySelector('.nav-links');
+
+// Add an event listener to the hamburger icon
+hamburger.addEventListener('click', function () {
+  navLinks.classList.toggle('open');
+  heroSectionContent.classList.toggle('menu-open');
+});
 
 // function getValue() {
 //   const url = shortUrl.value;
@@ -44,14 +50,31 @@ const heroSectionContent = document.querySelector('.hero-section-content');
 //   navbarLinks.classList.toggle('active');
 // });
 
-// Get the hamburger icon
-const hamburger = document.querySelector('.fa-bars');
+// Api calls
+const shortItButton = document.querySelector('.short-it');
+shortItButton.addEventListener('click', function () {
+  const linkBox = document.getElementById('linkBox');
+  const linkValue = linkBox.value;
 
-// Get the navigation links
-const navLinks = document.querySelector('.nav-links');
+  const regexUrl =
+    /^(?:[a-z]+:)?\/\/(?:(?:[\w$\-_.+!*'(),]|(?:%[0-9a-f]{2}))+:@)?(?:(?:[a-z0-9\-_]+\.)*[a-z0-9\-_]+|\[(?:(?:[0-9a-f]{1,4}:)*(?:[0-9a-f]{1,4})\])|\[v[a-f0-9]\.[\w$\-_.+!*'(),]*\])(?::[0-9]+)?(?:[\/|\?](?:[\w$\-_.+!*'(),;\/?:@&=+$\|#]|(?:%[0-9a-f]{2}))*)?(?:#[\w\-_.]*)?$/;
 
-// Add an event listener to the hamburger icon
-hamburger.addEventListener('click', function () {
-  navLinks.classList.toggle('open');
-  heroSectionContent.classList.toggle('menu-open');
+  const testingUrl = regexUrl.test(linkValue);
+
+  if (testingUrl === true) {
+    try {
+      async function fetchData() {
+        const response = await fetch(
+          `https://api.shrtco.de/v2/shorten?url=https://api.shrtco.de/v2/shorten?url=${linkValue}`
+        );
+        const data = await response.json();
+        console.log(data.result.full_short_link);
+      }
+      fetchData();
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  } else {
+    console.log('Not valid');
+  }
 });
