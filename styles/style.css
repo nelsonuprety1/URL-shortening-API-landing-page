@@ -116,6 +116,8 @@
       cursor: pointer;
   }
 
+
+
   /* Navbar Media queries for mobile design */
 
   @media (max-width: 600px) {
@@ -600,7 +602,7 @@
 
   .copy {
       margin-left: 1rem;
-      margin-right: 1rem;
+      margin-right: 1.7rem;
       height: 2rem;
       width: 5rem;
       background-color: var(--color-cyan);
@@ -610,7 +612,6 @@
       font-weight: var(--font-weight-seven);
       cursor: pointer;
   }
-
 
   /* ----------------Media query for url copy----------- */
   @media (max-width: 600px) {
@@ -697,7 +698,6 @@
           font-weight: var(--font-weight-seven);
           cursor: pointer;
       }
-
   }
 
   /* ------------Advanced Stats------------------- */
