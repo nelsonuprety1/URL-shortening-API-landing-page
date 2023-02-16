@@ -75,6 +75,7 @@ shortItButton.addEventListener('click', function () {
         urlCopy.style.display = 'block';
         errorMessage.style.display = 'none';
         linkBox.style.border = 'none';
+        linkBox.value = '';
       }
       fetchData();
     } catch (error) {
