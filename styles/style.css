@@ -431,6 +431,7 @@
       -webkit-transition: 0.3s ease-in;
       -o-transition: 0.3s ease-in;
       transition: 0.3s ease-in;
+      display: none;
   }
 
   /* --------Media query for URL shortening---------- */
@@ -521,6 +522,7 @@
           -webkit-transition: 0.3s ease-in;
           -o-transition: 0.3s ease-in;
           transition: 0.3s ease-in;
+          display: none;
       }
 
       .shorten-link.error-color {
@@ -584,6 +586,10 @@
   }
 
   hr {
+      display: none;
+  }
+
+  .hide-url {
       display: none;
   }
 
@@ -654,8 +660,7 @@
       }
 
       .hide-url {
-          /* visibility: hidden; */
-          display: block;
+          display: none;
       }
 
       .given-link {
@@ -798,7 +803,7 @@
   }
 
 
-  .stats::before {
+  /* .stats::before {
       content: "";
       width: 5px;
       height: 70%;
@@ -813,7 +818,8 @@
       -webkit-transition: 0.3s ease-in;
       -o-transition: 0.3s ease-in;
       transition: 0.3s ease-in;
-  }
+  } */
+
 
 
   /* ------------Media query for Advanced Stats ------------------- */
@@ -926,6 +932,7 @@
           line-height: 1.7;
       }
 
+      /* 
       .stats::before {
           content: "";
           width: 5px;
@@ -937,7 +944,7 @@
           -webkit-transform: rotate(180deg);
           -ms-transform: rotate(180deg);
           transform: rotate(180deg);
-      }
+      } */
   }
 
   /* --------_Boost Links--------- */
