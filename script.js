@@ -12,52 +12,35 @@ hamburger.addEventListener('click', function () {
   heroSectionContent.classList.toggle('menu-open');
 });
 
-// function getValue() {
-//   const url = shortUrl.value;
-//   //   console.log(url);
+// Api calls and local storage
 
-//   async function fetchData() {
-//     const response = await fetch(
-//       `https://api.shrtco.de/v2/shorten?url=https://api.shrtco.de/v2/shorten?url=${url}`
-//     );
-//     const data = await response.json();
-//     const html = `<h2>Shortened url</h2>
-//     <p>The shortened URL is ${data.result.full_short_link}</p>
-//     `;
-//     document.body.innerHTML = html;
-
-//     console.log(data.result.full_short_link);
-//   }
-//   fetchData();
-// }
-
-// Nav menu open and close
-// function showHideMenu() {
-//   let navLinks = document.getElementsByClassName('nav-links ul');
-//   if (navLinks.style.visibility === 'visible') {
-//     navLinks.style.visibility = 'hidden';
-//     // firstSectionContent.classList.remove('menu-open');
-//   } else {
-//     navLinks.style.visibility = 'visible';
-//     // firstSectionContent.classList.add('menu-open');
-//   }
-// }
-
-// const bars = document.getElementsByClassName('fa-bars');
-// const navbarLinks = document.getElementsByClassName('nav-links');
-
-// bars.addEventListener('click', () => {
-//   navbarLinks.classList.toggle('active');
-// });
-
-// Api calls
 const shortItButton = document.querySelector('.short-it');
+const urlCopy = document.querySelector('.hide-url');
+const linkBox = document.getElementById('linkBox');
+const errorMessage = document.querySelector('.error-msg');
+
+// Retrieve the array of shortened URLs from localStorage
+/*
+This line of code retrieves the value of the "shortenedUrls" key from localStorage using localStorage.getItem('shortenedUrls'). It then uses JSON.parse() to parse the retrieved value as JSON, if it is not null. If the retrieved value is null, then an empty array is used as the default value.
+
+The || [] at the end is known as the nullish coalescing operator,
+ and it returns the first truthy value from left to right. 
+ In this case, if JSON.parse(localStorage.getItem('shortenedUrls')) returns null, 
+ it will evaluate to false and return the empty array as the default value. 
+ This ensures that shortenedUrls is always an array, whether it is populated with data or empty.
+*/
+const shortenedUrls = JSON.parse(localStorage.getItem('shortenedUrls')) || [];
+
+// Insert the shortened URLs into the document
+shortenedUrls.forEach(url => {
+  urlCopy.insertAdjacentHTML('beforeend', url);
+});
+if (shortenedUrls.length > 0) {
+  urlCopy.style.display = 'block';
+}
 
 shortItButton.addEventListener('click', function () {
-  const urlCopy = document.querySelector('.hide-url');
-  const linkBox = document.getElementById('linkBox');
   const linkValue = linkBox.value;
-  const errorMessage = document.querySelector('.error-msg');
 
   const regexUrl =
     /^(?:[a-z]+:)?\/\/(?:(?:[\w$\-_.+!*'(),]|(?:%[0-9a-f]{2}))+:@)?(?:(?:[a-z0-9\-_]+\.)*[a-z0-9\-_]+|\[(?:(?:[0-9a-f]{1,4}:)*(?:[0-9a-f]{1,4})\])|\[v[a-f0-9]\.[\w$\-_.+!*'(),]*\])(?::[0-9]+)?(?:[\/|\?](?:[\w$\-_.+!*'(),;\/?:@&=+$\|#]|(?:%[0-9a-f]{2}))*)?(?:#[\w\-_.]*)?$/;
@@ -68,24 +51,28 @@ shortItButton.addEventListener('click', function () {
     try {
       async function fetchData() {
         const response = await fetch(
-          `https://api.shrtco.de/v2/shorten?url=https://api.shrtco.de/v2/shorten?url=${linkValue}`
+          `https://api.shrtco.de/v2/shorten?url=${linkValue}`
         );
         const data = await response.json();
 
         const html = `
-    <section class="copying-url">
-        <p class="given-link">${linkValue}</p>
-        <hr>
-        <div class="return-links">
-          <p class="small-link"><a href="${data.result.full_short_link}" target="_blank">${data.result.full_short_link}</a></p>
-          <button class="copy">Copy</button>
-        </div>
-    </section>
+          <section class="copying-url">
+            <p class="given-link">${linkValue}</p>
+            <hr>
+            <div class="return-links">
+              <p class="small-link"><a href="${data.result.full_short_link}" target="_blank">${data.result.full_short_link}</a></p>
+              <button class="copy">Copy</button>
+            </div>
+          </section>
         `;
 
+        // Add the shortened URL to the array in localStorage
+        shortenedUrls.push(html);
+        localStorage.setItem('shortenedUrls', JSON.stringify(shortenedUrls));
+
+        // Insert the HTML into the document
         urlCopy.insertAdjacentHTML('beforeend', html);
         urlCopy.style.display = 'block';
-        // console.log(data.result.full_short_link);
         errorMessage.style.display = 'none';
         linkBox.style.border = 'none';
       }
@@ -94,7 +81,6 @@ shortItButton.addEventListener('click', function () {
       console.error('An error occurred:', error);
     }
   } else {
-    // console.log('Not valid');
     errorMessage.style.display = 'block';
     linkBox.style.border = '2px solid red';
   }
